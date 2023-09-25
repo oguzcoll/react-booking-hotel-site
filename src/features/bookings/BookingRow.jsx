@@ -44,10 +44,14 @@ function BookingRow({
     numGuests,
     totalPrice,
     status,
-    guests: { fullName: guestName, email },
+    guests,
     cabins: { name: cabinName },
   },
 }) {
+  // Check if guests exist and have a fullName property
+  const guestName = guests?.fullName || "Guest Name Not Available";
+  const email = guests?.email || "Email Not Available";
+
   const statusToTagName = {
     unconfirmed: "blue",
     "checked-in": "green",
